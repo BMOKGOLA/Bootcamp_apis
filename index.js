@@ -3,7 +3,7 @@ import express from "express";
 import {findLongestWord,findShortestWord,calculateWordLengths} from "./wordgame.js"
 
 import { totalPhoneBill } from "./totalphone.js";
-import {enoughAirtime} from "./enoughAirtime.js"
+import {enoughAirtime} from "./enough.js"
 // create a new express application instance
 const  app = express();
 // add just below const app = express();
