@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="alphine.data.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    
+</head>
+<body>
+
+    <div x-data="apiHandler()" class="widget-container">
+        <!-- Word Game API Interaction -->
+        <div class="api-section">
+            <h2 class="section-title">Word Game API</h2>
+            <input type="text" x-model="sentence" placeholder="Enter a sentence" class="input-field">
+            <button @click="fetchWordGameData" class="action-button">Get Word Game Data</button>
+            <div x-show="wordGameResult" class="result-display">
+                <p><strong>Longest Word:</strong> <span x-text="wordGameResult.longestWord"></span></p>
+                <p><strong>Shortest Word:</strong> <span x-text="wordGameResult.shortestWord"></span></p>
+                <p><strong>Total Length:</strong> <span x-text="wordGameResult.totalLength"></span></p>
+            </div>
+        </div>
+
+        <!-- Phone Bill Total API Interaction -->
+        <div class="api-section">
+            <h2 class="section-title">Total Phone Bill API</h2>
+            <input type="text" x-model="bill" placeholder="Enter bill (e.g., call,sms,call)" class="input-field">
+            <button @click="fetchPhoneBillTotal" class="action-button">Get Total Bill</button>
+            <div x-show="totalBill" class="result-display">
+                <p><strong>Total Bill:</strong> R<span x-text="totalBill"></span></p>
+            </div>
+        </div>
+
+        <!-- Phone Bill Prices API Interaction -->
+        <div class="api-section">
+            <h2 class="section-title">Phone Bill Prices</h2>
+            <button @click="fetchPhoneBillPrices" class="action-button">Get Prices</button>
+            <div x-show="phoneBillPrices" class="result-display">
+                <p><strong>Call Rate:</strong> R<span x-text="phoneBillPrices.call"></span></p>
+                <p><strong>SMS Rate:</strong> R<span x-text="phoneBillPrices.sms"></span></p>
+            </div>
+        </div>
+
+        <!-- Set Phone Bill Price API Interaction -->
+        <div class="api-section">
+            <h2 class="section-title">Set Phone Bill Price</h2>
+            <input type="text" x-model="priceType" placeholder="Type (call or sms)" class="input-field">
+            <input type="number" x-model="priceAmount" placeholder="Enter price" class="input-field">
+            <button @click="setPhoneBillPrice" class="action-button">Set Price</button>
+            <div x-show="setPriceResult" class="result-display">
+                <p><strong>Status:</strong> <span x-text="setPriceResult.status"></span></p>
+                <p><strong>Message:</strong> <span x-text="setPriceResult.message"></span></p>
+            </div>
+        </div>
+
+        <!-- Enough Airtime API Interaction -->
+        <div class="api-section">
+            <h2 class="section-title">Enough Airtime API</h2>
+            <input type="text" x-model="usage" placeholder="Usage (e.g., call,sms,call)" class="input-field">
+            <input type="number" x-model="availableAirtime" placeholder="Available Airtime" class="input-field">
+            <button @click="checkEnoughAirtime" class="action-button">Check Airtime</button>
+            <div x-show="airtimeResult" class="result-display">
+                <p><strong>Remaining Airtime:</strong> R<span x-text="airtimeResult"></span></p>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>

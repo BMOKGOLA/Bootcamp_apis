@@ -1,0 +1,7 @@
+POST http://localhost:3010/api/total HTTP/1.1
+content-type: application/json
+
+{
+    "bill": "call,sms,call"
+}
+
